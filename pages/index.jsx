@@ -17,7 +17,6 @@ export default function Home() {
           name='description'
           content='Coffee stores finder near by me landing page.'
         />
-        <link rel='icon' href='/favicon.ico' />
       </Head>
 
       <main className={styles.main}>
