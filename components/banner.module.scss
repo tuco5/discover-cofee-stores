@@ -1,6 +1,6 @@
 /** By default, this is a mobile breakpoint **/
 .container {
-  margin-bottom: 6rem;
+  margin-bottom: 16rem;
   text-transform: capitalize;
   position: relative;
   z-index: 2;
@@ -50,10 +50,10 @@
   line-height: 1.75rem /* 28px */;
   padding-left: 2.5rem /* 40px */;
   padding-right: 2.5rem /* 40px */;
-}
 
-.button:hover {
-  background-color: var(--color-purple-dark);
+  &:hover {
+    background-color: var(--color-purple-dark);
+  }
 }
 
 /** sm breakpoint **/
