@@ -1,5 +1,6 @@
-/** Mobile first development **/
+@import '/styles/variables/colors.module.scss';
 
+/** Mobile first development **/
 .container {
   margin-bottom: 14rem /* 224px */;
   position: relative;
@@ -36,7 +37,7 @@
   line-height: 2.5rem;
   padding-bottom: 2rem;
   margin-top: 2rem;
-  color: var(--text-white-100);
+  color: $color-white;
 }
 
 .sectionWrapper {
