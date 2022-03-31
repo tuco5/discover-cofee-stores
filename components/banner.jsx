@@ -4,8 +4,8 @@ const Banner = ({ buttonText, handleOnClick }) => {
   return (
     <div className={styles.container}>
       <h1 className={styles.title}>
-        <span className={styles.title__left}>coffee</span>
-        <span className={styles.title__right}>connoisseur</span>
+        <span className={styles.title1}>coffee </span>
+        <span className={styles.title2}>connoisseur</span>
       </h1>
       <p className={styles.subTitle}>discover your local cofee shops!</p>
       <div className={styles.buttonWrapper}>
