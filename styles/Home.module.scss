@@ -1,3 +1,4 @@
+@import '/styles/variables/breakpoints.module.scss';
 @import '/styles/variables/colors.module.scss';
 
 /** Mobile first development **/
@@ -44,15 +45,7 @@
   margin-top: 5rem;
 }
 
-/** Breakpoints:
-  sm: min-width: 640px;
-  md: min-width: 768px;
-  lg: min-width: 1024px;
-  xl: min-width: 1280px;
-  2xl: min-width: 1536px;
-**/
-
-@media (min-width: 640px) {
+@media (min-width: $bp-phone) {
   .container {
     padding-left: 1rem /* 16px */;
     padding-right: 1rem /* 16px */;
@@ -68,7 +61,7 @@
   }
 }
 
-@media (min-width: 768px) {
+@media (min-width: $bp-tablet) {
   .container {
     padding-left: 2.5rem /* 40px */;
     padding-right: 2.5rem /* 40px */;
@@ -87,7 +80,7 @@
   }
 }
 
-@media (min-width: 1024px) {
+@media (min-width: $bp-desktop) {
   .container {
     padding-left: 2.5rem /* 40px */;
     padding-right: 2.5rem /* 40px */;
@@ -105,7 +98,7 @@
   }
 }
 
-@media (min-width: 1280px) {
+@media (min-width: $bp-big-screen) {
   .main {
     margin-top: 7rem /* 112px */;
   }
