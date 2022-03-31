@@ -33,11 +33,11 @@ button {
   background-color: transparent;
   background-image: none;
   font-weight: 600;
+}
 
-  &:focus{
-    outline: 1px dotted;
-    outline: 5px auto -webkit-focus-ring-color;
-  }
+button:focus {
+  outline: 1px dotted;
+  outline: 5px auto -webkit-focus-ring-color;
 }
 
 @font-face {
@@ -67,25 +67,24 @@ button {
   -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
   border: 1px solid hsla(0, 0%, 100%, 0.2);
-  
-  &:hover {
-    background: hsla(0, 0%, 100%, 0.7);
-    border: 1px solid #fff;
-  }
 }
 
+.glass:hover {
+  background: hsla(0, 0%, 100%, 0.7);
+  border: 1px solid #fff;
+}
 
 :root {
-  // COLORS
-  --color-purple: rgba(79, 70, 229, 1);
-  --color-purple-dark: rgba(67, 56, 202, 1);
+  /* COLORS */
+  --color-purple: rgba(67, 56, 202, 1);
+  --color-purple-dark: rgba(79, 70, 229, 1);
   --color-black: rgba(17, 24, 39, 1);
   --color-white: rgba(229, 231, 235, 1);
 
-  // BREAKPOINTS
-  --break-point-sm: min-width: 640px; //small device
-  --break-point-md: min-width: 768px; // medium device
-  --break-point-lg: min-width: 1024px; // large device
-  --break-point-xl: min-width: 1280px; // extra large device
-  --break-point-2xl: min-width: 1536px; // 2 x extra large device
+  /* BREAKPOINTS */
+  --break-point-sm: 640px; /*small device*/
+  --break-point-md: 768px; /* medium device*/
+  --break-point-lg: 1024px; /* large device*/
+  --break-point-xl: 1280px; /* extra large device*/
+  --break-point-2xl: 1536px; /* 2 x extra large device*/
 }
