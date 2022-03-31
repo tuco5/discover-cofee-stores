@@ -1,3 +1,5 @@
+@import '/styles/variables/colors.module.scss';
+
 .cardLink {
   margin: auto;
   --tw-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
@@ -5,8 +7,10 @@
   box-shadow: 0 0 transparent, 0 0 #0000, 0 0 transparent, 0 0 #0000,
     0 0 transparent;
 
-  border-color: var(--text-white-100);
+  border-color: $color-white;
   border-radius: 0.75rem /* 12px */;
+  position: relative;
+  z-index: 3;
 }
 
 .container {
@@ -36,7 +40,7 @@
 }
 
 .cardImageWrapper {
-  color: var(--text-white-100);
+  color: $color-white;
 }
 
 .cardImage {
