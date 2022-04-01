@@ -1,13 +1,13 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import classNames from 'classnames';
+import cls from 'classnames';
 
 import styles from './card.module.scss';
 
 const Card = ({ name, imgUrl, href }) => (
   <Link href={href}>
     <a className={styles.cardLink}>
-      <div className={classNames('glass', styles.container)}>
+      <div className={cls('glass', styles.container)}>
         <div className={styles.cardHeaderWrapper}>
           <h2 className={styles.cardHeader}>{name}</h2>
         </div>
