@@ -3,21 +3,30 @@ import Image from 'next/image';
 
 import Banner from '../components/banner';
 import Card from '../components/card';
-import coffeeStores from '../data/coffee-stores.json';
+
+import coffeeStoresData from '../data/coffee-stores.json';
 
 import styles from '../styles/Home.module.scss';
 
-export default function Home() {
+export async function getStaticProps(context) {
+  return {
+    props: {
+      coffeeStores: coffeeStoresData,
+    }, // will be passed to the page component as props
+  };
+}
+
+export default function Home({ coffeeStores }) {
   const bannerBtnHandleOnClick = () => {
     alert('hi from banner button...');
   };
   return (
     <div className={styles.container}>
       <Head>
-        <title>Coffee Conoisseur</title>
+        <title>Coffee Connoisseur</title>
         <meta
           name="description"
-          content="Coffee stores finder near by me landing page."
+          content="Coffee stores near by me finder landing page."
         />
       </Head>
 
@@ -36,20 +45,25 @@ export default function Home() {
           />
         </div>
 
-        <div className={styles.cardLayout}>
-          {coffeeStores.map(
-            ({ id, name, imgUrl, websiteUrl, ...otherProps }) => (
-              <Card
-                key={id}
-                className={styles.card}
-                name={name}
-                imgUrl={imgUrl}
-                href={`/coffee-store/${id}`}
-                {...otherProps}
-              />
-            )
-          )}
-        </div>
+        {coffeeStores.length > 0 && (
+          <>
+            <h2 className={styles.heading2}>Toronto stores</h2>
+            <div className={styles.cardLayout}>
+              {coffeeStores.map(
+                ({ id, name, imgUrl, websiteUrl, ...otherProps }) => (
+                  <Card
+                    key={id}
+                    className={styles.card}
+                    name={name}
+                    imgUrl={imgUrl}
+                    href={`/coffee-store/${id}`}
+                    {...otherProps}
+                  />
+                )
+              )}
+            </div>
+          </>
+        )}
       </main>
     </div>
   );
