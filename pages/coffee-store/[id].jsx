@@ -4,22 +4,24 @@ import Head from 'next/head';
 import Image from 'next/image';
 import cls from 'classnames';
 
-import coffeeStoresData from '../../data/coffee-stores.json';
+import { fetchCoffeeStores } from '../../lib/coffee-stores';
 
 import styles from '../../styles/coffee-store.module.scss';
 
-export function getStaticProps({ params }) {
+export async function getStaticProps({ params }) {
+  const coffeeStores = await fetchCoffeeStores();
   return {
     props: {
-      coffeeStore: coffeeStoresData.find(
-        (coffeeStore) => coffeeStore.id === params.id
+      coffeeStore: coffeeStores.find(
+        (coffeeStore) => coffeeStore.fsq_id === params.id
       ),
     },
   };
 }
 
-export function getStaticPaths() {
-  const paths = coffeeStoresData.map(({ id }) => ({ params: { id } }));
+export async function getStaticPaths() {
+  const coffeeStores = await fetchCoffeeStores();
+  const paths = coffeeStores.map(({ fsq_id }) => ({ params: { id: fsq_id } }));
   return {
     paths,
     fallback: true,
@@ -31,7 +33,13 @@ const CoffeeStore = ({ coffeeStore }) => {
 
   if (router.isFallback) return <div>Loading..</div>;
 
-  const { address, name, neighbourhood, imgUrl } = coffeeStore;
+  console.log(coffeeStore);
+  const {
+    location: { address },
+    name,
+    location: { locality },
+    imgUrl,
+  } = coffeeStore;
 
   const handleUpvoteButton = () => {
     alert('up vote button function goes here');
@@ -53,7 +61,10 @@ const CoffeeStore = ({ coffeeStore }) => {
             <h1 className={styles.name}>{name}</h1>
           </div>
           <Image
-            src={imgUrl}
+            src={
+              imgUrl ||
+              'https://images.unsplash.com/photo-1504753793650-d4a2b783c15e?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2000&q=80'
+            }
             width={600}
             height={360}
             alt={name}
@@ -78,7 +89,7 @@ const CoffeeStore = ({ coffeeStore }) => {
               height={24}
               alt="near me icon"
             />
-            <p className={styles.text}>{neighbourhood}</p>
+            <p className={styles.text}>{locality}</p>
           </div>
           <div className={styles.iconWrapper}>
             <Image
