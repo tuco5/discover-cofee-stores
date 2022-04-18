@@ -52,7 +52,7 @@ const CoffeeStore = (initialProps) => {
         setCoffeeStore(findCoffeeStoreById);
       }
     }
-  }, [id]);
+  }, [id, initialProps, coffeeStore, coffeeStores]);
 
   if (router.isFallback) return <div>Loading..</div>;
 
