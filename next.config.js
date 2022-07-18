@@ -2,7 +2,7 @@
 const path = require('path');
 
 const nextConfig = {
-  reactStrictMode: true,
+  reactStrictMode: false,
   images: {
     domains: ['images.unsplash.com'],
   },
